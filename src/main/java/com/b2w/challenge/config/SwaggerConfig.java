@@ -1,7 +1,5 @@
 package com.b2w.challenge.config;
 
-import java.util.ArrayList;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Pageable;
@@ -37,9 +35,9 @@ public class SwaggerConfig {
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
                 .contact(new Contact(
-                		"Alberes Junior", 
-                		"https://github.com/AlberesJr/B2W-Challenge-SW",
-                		"alberesjr22@gmail.com"))
+                		"", 
+                		"",
+                		""))
                 .build();
     }
 
