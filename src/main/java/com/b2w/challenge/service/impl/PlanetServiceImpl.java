@@ -1,13 +1,11 @@
 package com.b2w.challenge.service.impl;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.b2w.challenge.B2WChallengeApplication;
 import com.b2w.challenge.exception.BadRequestException;
 import com.b2w.challenge.exception.ObjectNotFoundException;
 import com.b2w.challenge.model.Planet;
@@ -34,7 +32,11 @@ public class PlanetServiceImpl implements PlanetService {
 
 	@Override
 	public Planet findByName(String name) {
-		return this.planetRepository.findByName(name);
+		Planet planet = this.planetRepository.findByName(name);
+		if (planet == null) {
+			throw new ObjectNotFoundException("Planeta não encontrado.");
+		}
+		return planet;
 	}
 
 	@Override
