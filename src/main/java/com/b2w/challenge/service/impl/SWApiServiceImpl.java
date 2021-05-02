@@ -49,39 +49,5 @@ public class SWApiServiceImpl {
 		}
 		return entity;
 	}
-	
-	public ResponseEntity<ResultApiSW> makeSWApiRequestTest(){
-		try {
-			uri = UriComponentsBuilder
-					.newInstance()
-					.scheme("https")
-					.host("swapi.dev")
-					.path("/api/planets22/")
-					.build();
-			
-			
-			
-			entity = rest.getForEntity(uri.toUriString(), ResultApiSW.class);
-			aux = entity;
-			
-			while (aux.getBody().getNext() != null) {
-				uri = UriComponentsBuilder
-						.newInstance()
-						.scheme("https")
-						.host("swapi.dev")
-						.path("/api/planets/")
-						.queryParam("page", aux.getBody().getNext()
-												.substring(aux.getBody()
-												.getNext().length() - 1))
-						.build();
-				
-				aux = rest.getForEntity(uri.toUriString(), ResultApiSW.class);
-				entity.getBody().getResults().addAll(aux.getBody().getResults());
-			}
-		} catch (ServiceUnavailableException e) {
-			throw new ServiceUnavailableException("Star Wars Api unavailable.");
-		}
-		return entity;
-	}
-	
+		
 }
