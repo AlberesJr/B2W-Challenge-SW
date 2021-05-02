@@ -4,28 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
-import com.b2w.challenge.model.ResultApiSW;
-import com.b2w.challenge.service.impl.SWApiService;
+import com.b2w.challenge.service.impl.SWApiServiceImpl;
+import com.b2w.challenge.util.Util;
 
 
 @SpringBootApplication
+@EnableScheduling
 public class B2WChallengeApplication implements CommandLineRunner{
 	
 	@Autowired
-	private SWApiService service;
+	private SWApiServiceImpl service;
 	
-	public static ResponseEntity<ResultApiSW> planetsList;
-
 	public static void main(String[] args) {
 		SpringApplication.run(B2WChallengeApplication.class, args);
 	}
 	
-
 	@Override
 	public void run(String... args) throws Exception {
-		planetsList = service.makeRequest();
+		Util.planetsList = service.makeSWApiRequest();
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.b2w.challenge.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -9,10 +10,11 @@ public class Planet {
 	@Id
 	private String id;
 	
+	@Indexed(unique = true)
 	private String name;
-	
+
 	private String climate;
-	
+
 	private String terrain;
 	
 	private int countFilms;
