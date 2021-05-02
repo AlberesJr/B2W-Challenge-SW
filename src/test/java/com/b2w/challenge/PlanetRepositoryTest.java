@@ -16,8 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.b2w.challenge.model.Planet;
 import com.b2w.challenge.repository.PlanetRepository;
 
-//@ExtendWith(SpringExtension.class)
-//@DataMongoTest
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class PlanetRepositoryTest {
 	

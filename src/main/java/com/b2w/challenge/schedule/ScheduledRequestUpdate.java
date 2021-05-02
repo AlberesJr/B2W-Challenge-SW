@@ -17,7 +17,7 @@ public class ScheduledRequestUpdate {
 	
 	//Atualiza a lista da api do Star Wars a cada 6 horas
 	//Para prevenção de possíveis atualizações
-	@Scheduled(cron = "0 0 0,6,12,18,21 * * *", zone = TIME_ZONE)
+	@Scheduled(cron = "0 0 0,6,12,18 * * *", zone = TIME_ZONE)
 	public void scheduleTaskUpdatePlanetList() {
 		Util.planetsList = service.makeSWApiRequest();
 	}
